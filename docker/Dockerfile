@@ -18,6 +18,7 @@ RUN . venv/bin/activate
 
 # optimize image caching
 COPY requirements.txt .
+RUN chmod 777 Certificates_holders.xlsx
 RUN pip install -r requirements.txt
 
 COPY . .
