@@ -1,14 +1,26 @@
 from flask import Flask
 from waitress import serve
-
+import pandas as pd
 app = Flask(__name__)
 
+# @app.route('/')
+# def hello():
+#     return "Hello World!"
+# @app.route('/custom')
+# def custom_hello():
+#     return "Hello Custom World!"
+df = pd.read_excel('Certificates_holders.xlsx')
+df.to_excel('Certificates_holders.xlsx', index=None)
+  
+  
+# route to html page - "table"
 @app.route('/')
-def hello():
-    return "Hello World!"
-@app.route('/custom')
-def custom_hello():
-    return "Hello Custom World!"
+@app.route('/table')
+def table():
+    
+    # converting csv to html
+    data = pd.read_excel('Certificates_holders.xlsx')
+    return render_template('table.html', tables=[data.to_html()], titles=[''])
 
 if __name__ == '__main__':
     serve(app, host='0.0.0.0', port=8080)
