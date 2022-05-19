@@ -1,6 +1,7 @@
 from flask import Flask, request, render_template
 from waitress import serve
 import pandas as pd
+import requests
 app = Flask(__name__)
 
 # @app.route('/')
@@ -19,7 +20,9 @@ df = pd.read_excel('Certificates_holders.xlsx')
 def table():
     
     # converting csv to html
-    data = pd.read_excel('Certificates_holders.xlsx')
+    robj = requests.get("https://fakestoreapi.com/products")
+    lod = eval(robj.content)
+    data = pd.DataFrame(lod)
     return render_template('table.html', tables=[data.to_html()], titles=[''])
 
 if __name__ == '__main__':
