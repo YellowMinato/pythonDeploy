@@ -10,7 +10,7 @@ app = Flask(__name__)
 # def custom_hello():
 #     return "Hello Custom World!"
 df = pd.read_excel('Certificates_holders.xlsx')
-df.to_excel('Certificates_holders.xlsx', index=None)
+# df.to_excel('Certificates_holders.xlsx', index=None)
   
   
 # route to html page - "table"
