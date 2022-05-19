@@ -7,7 +7,7 @@ app = Flask(__name__)
 def hello():
     return "Hello World!"
 @app.route('/custom')
-def hello():
+def custom_hello():
     return "Hello Custom World!"
 
 if __name__ == '__main__':
