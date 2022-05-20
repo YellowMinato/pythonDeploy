@@ -18,14 +18,14 @@ app = Flask(__name__)
 @app.route('/')
 @app.route('/table')
 def table():
-    
+    return "hello world"
     # converting csv to html
-    robj = requests.get("https://fakestoreapi.com/products")
-    lod = eval(robj.content)
-    # data = pd.DataFrame(lod)
-    # np_lod = np.array(lod)
-    # np_lod.reshape(-1,4)
-    return render_template('table.html', lod=lod)
+    # robj = requests.get("https://fakestoreapi.com/products")
+    # lod = eval(robj.content)
+    # # data = pd.DataFrame(lod)
+    # # np_lod = np.array(lod)
+    # # np_lod.reshape(-1,4)
+    # return render_template('table.html', lod=lod)
 
 if __name__ == '__main__':
     # app.run()
