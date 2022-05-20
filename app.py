@@ -23,9 +23,11 @@ def table():
     robj = requests.get("https://fakestoreapi.com/products")
     lod = eval(robj.content)
     # data = pd.DataFrame(lod)
+    # np_lod = np.array(lod)
+    # np_lod.reshape(-1,4)
     return render_template('table.html', lod=lod)
 
 if __name__ == '__main__':
-    app.run()
+    # app.run()
     serve(app, host='0.0.0.0', port=8080)
     # app.run(host = '0.0.0.0')

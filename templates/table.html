@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-                {% for table in lod %}
-                
-                <div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="{{table['image']}}" alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title">{{table['title']}}</h5>
-      <p class="card-text">{{table['description']}}</p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
+    <div class="container">
+        <div class="row">
+                    {% for table in lod %}
+            <div class="col-3 m-2">
+                <div class="card ">
+                    <img class="card-img-top img-fluid" src="{{table['image']}}" alt="Card image cap">
+                    <div class="card-block">
+                        <h4 class="card-title">{{table['title']}}</h4>
+                        <p class="card-text">{{table['description']}}</p>
+                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    </div>
+                </div>
+            </div>
+      {% endfor %} 
+      </div>
     </div>
-  </div>
-  {% endfor %}
     </body>
 </html>
