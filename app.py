@@ -1,6 +1,6 @@
 from flask import Flask, request, render_template
 from waitress import serve
-import pandas as pd
+# import pandas as pd
 import requests
 app = Flask(__name__)
 
@@ -10,7 +10,7 @@ app = Flask(__name__)
 # @app.route('/custom')
 # def custom_hello():
 #     return "Hello Custom World!"
-df = pd.read_excel('Certificates_holders.xlsx')
+# df = pd.read_excel('Certificates_holders.xlsx')
 # df.to_excel('Certificates_holders.xlsx', index=None)
   
   
@@ -22,8 +22,10 @@ def table():
     # converting csv to html
     robj = requests.get("https://fakestoreapi.com/products")
     lod = eval(robj.content)
-    data = pd.DataFrame(lod)
-    return render_template('table.html', tables=[data.to_html()], titles=[''])
+    # data = pd.DataFrame(lod)
+    return render_template('table.html', lod=lod)
 
 if __name__ == '__main__':
+    app.run()
     serve(app, host='0.0.0.0', port=8080)
+    # app.run(host = '0.0.0.0')
